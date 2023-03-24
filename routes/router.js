@@ -73,6 +73,22 @@ router.delete('/skills/:id', async (req, res) => {
     }
 });
 
+router.patch('/skills/:id', async(req, res) => {
+
+    const articleId = req.params.id;
+
+    try{
+        await Article.findOneAndUpdate({
+            _id: articleId
+        },{
+            "title": req.body.title
+        });
+        res.send("Done");
+    } catch(e){
+        res.statusCode(400);
+    }
+});
+
 
 
 
