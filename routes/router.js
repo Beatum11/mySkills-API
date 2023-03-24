@@ -11,14 +11,14 @@ router.get('/', (req, res) => {
     res.send("Router is working");
 });
 //----------------------------------------------
-router.get('/articles', async(req, res) => {
+router.get('/skills', async(req, res) => {
     const result = await Article.find();
     res.json({
         "skills": result
     });
 });
 //----------------------------------------------
-router.get('/articles/:id', async(req, res) => {
+router.get('/skills/:id', async(req, res) => {
 
     const articleId = req.params.id;
     const result = await Article.findById(articleId);
@@ -28,7 +28,7 @@ router.get('/articles/:id', async(req, res) => {
     });
 });
 //----------------------------------------------
-router.post('/articles', async(req, res) => {
+router.post('/skills', async(req, res) => {
     const article = new Article({
         "title": req.body.title,
         "post": req.body.post
@@ -42,7 +42,7 @@ router.post('/articles', async(req, res) => {
     }
 });
 //----------------------------------------------
-router.put('/articles/:id', async(req, res) => {
+router.put('/skills/:id', async(req, res) => {
     const articleId = req.params.id;
 
     try{
@@ -59,7 +59,7 @@ router.put('/articles/:id', async(req, res) => {
     }
 });
 //----------------------------------------------------
-router.delete('/articles/:id', async (req, res) => {
+router.delete('/skills/:id', async (req, res) => {
 
     const articleId = req.params.id;
 
